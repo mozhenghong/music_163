@@ -1,0 +1,17 @@
+{
+  "name": "music-163",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "plupload": "^2.3.6",
+    "qiniu": "^7.2.1",
+    "qiniu-js": "^1.0.24"
+  }
+}
