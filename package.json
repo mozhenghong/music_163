@@ -1,10 +1,10 @@
 {
   "name": "music-163",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
   "keywords": [],
   "author": "",
@@ -12,6 +12,15 @@
   "dependencies": {
     "plupload": "^2.3.6",
     "qiniu": "^7.2.1",
-    "qiniu-js": "^1.0.24"
-  }
+    "qiniu-js": "^1.0.22"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mozhenghong/music_163.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mozhenghong/music_163/issues"
+  },
+  "homepage": "https://github.com/mozhenghong/music_163#readme",
+  "description": ""
 }
