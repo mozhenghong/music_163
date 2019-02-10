@@ -23,25 +23,25 @@ input {
       border-bottom: 1px solid #999; }
     .page .aside .newSong.active {
       background: #D5D4D5; }
-    .page .aside .songList {
+    .page .aside #songList-container {
       flex-grow: 1; }
-      .page .aside .songList li {
+      .page .aside #songList-container .songList li {
         padding: 10px;
         border-bottom: 1px solid #ddd; }
-      .page .aside .songList li.active {
+      .page .aside #songList-container .songList li.active {
         background: #d5d4d5; }
-    .page .aside #upLoadContainer {
+    .page .aside .uploadArea #upLoadContainer {
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       border: 2px dashed #ddd;
       border-radius: 10px; }
-      .page .aside #upLoadContainer #upLoadButton {
+      .page .aside .uploadArea #upLoadContainer #upLoadButton {
         padding: 20px;
         text-align: center;
         cursor: pointer; }
-    .page .aside #uploadStatus {
+    .page .aside .uploadArea #uploadStatus {
       height: 3em; }
   .page .main {
     padding-left: 20px;

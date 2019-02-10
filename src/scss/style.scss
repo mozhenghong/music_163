@@ -26,32 +26,37 @@ input{
         .newSong.active{
             background: #D5D4D5;
         }
-        .songList{
+        #songList-container{
             flex-grow: 1;
-            li{
-                padding: 10px;
-                border-bottom: 1px solid #ddd;
-            }
-            li.active{
-                background: #d5d4d5;
-            }
-        }
-        #upLoadContainer{
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            border: 2px dashed #ddd;
-            border-radius: 10px;
-            #upLoadButton{
-                padding: 20px;
-                text-align: center;
-                cursor: pointer;
+            .songList{
+                li{
+                    padding: 10px;
+                    border-bottom: 1px solid #ddd;
+                }
+                li.active{
+                    background: #d5d4d5;
+                }
             }
         }
-        #uploadStatus{
-            height: 3em;
+        .uploadArea{
+            #upLoadContainer{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                border: 2px dashed #ddd;
+                border-radius: 10px;
+                #upLoadButton{
+                    padding: 20px;
+                    text-align: center;
+                    cursor: pointer;
+                }
+            }
+            #uploadStatus{
+                height: 3em;
+            }
         }
+       
     }
     .main{
         padding-left: 20px;
