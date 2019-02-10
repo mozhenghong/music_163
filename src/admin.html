@@ -7,31 +7,43 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>管理者页面</title>
     <script src="//cdn.jsdelivr.net/npm/leancloud-storage@3.11.1/dist/av-min.js"></script>
-    <style>
-        *{
-            margin: 0;
-            padding: 0;
-        }
-        #yyy{
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            border: 2px dashed #ddd;
-            height: 200px;
-            width: 400px;
-            border-radius: 10px;
-        }
-    </style>
+    <link rel="stylesheet" href="./css/style.css">
 </head>
 
 <body>
-    <div id="yyy">
-        <span id="xxx">点击或拖拽上传文件</span>
-        <p>文件大小不能超多20MB</p>
+    <div class="page">
+        <div class="aside">
+            <div class="newSong">新建歌曲</div>
+            <ul class="songList">
+                <li>歌曲1</li>
+                <li>歌曲2</li>
+                <li>歌曲3</li>
+                <li class="active">歌曲4</li>
+                <li>歌曲5</li>
+                <li>歌曲6</li>
+                <li>歌曲7</li>
+                <li>歌曲8</li>
+                <li>歌曲9</li>
+                <li>歌曲10</li>
+            </ul>
+            <div id="upLoadContainer">
+                <div id="upLoadButton">
+                    <p>点击或拖拽上传文件</p>
+                    <p>文件大小不能超多20MB</p>
+                </div>
+            </div>
+            <div id="uploadStatus"></div>
+        </div>
+        <div class="main">
+            <form class="form">
+                <label>歌名：<input type="text"></label>
+                <label>歌手：<input type="text"></label>
+                <label>外链：<input type="text"></label>
+                <label><input type="submit" value="保存"></label>   
+            </form>
+        </div>
     </div>
-    <div id="uploadStatus"></div>
-    <audio controls src="http://pmnewar93.bkt.clouddn.com/%E8%96%9B%E4%B9%8B%E8%B0%A6%20-%20%E5%A4%A9%E4%BB%BD.mp3"></audio>
+
     <!-- leancloud -->
     <script>
         var APP_ID = 'gQxw0EF70g7NUVq1tbWcY31D-gzGzoHsz';
@@ -69,13 +81,13 @@
     <script>
         var uploader = Qiniu.uploader({
             runtimes: 'html5',    //上传模式,依次退化
-            browse_button: 'xxx',       //上传选择的点选按钮，**必需**
+            browse_button: 'upLoadButton',       //上传选择的点选按钮，**必需**
             uptoken_url: 'http://localhost:8888/uptoken',
             domain: 'pmnewar93.bkt.clouddn.com',   //bucket 域名，下载资源时用到，**必需**
             get_new_uptoken: false,  //设置上传文件的时候是否每次都重新获取新的token
             max_file_size: '20mb',           //最大文件体积限制
             dragdrop: true,                   //开启可拖曳上传
-            drop_element: 'yyy',        //拖曳上传区域元素的ID，拖曳文件或文件夹后可触发上传
+            drop_element: 'upLoadContainer',        //拖曳上传区域元素的ID，拖曳文件或文件夹后可触发上传
             auto_start: true,                 //选择文件后自动上传，若关闭需要自己绑定事件触发上传
             init: {
                 'FilesAdded': function (up, files) {
@@ -101,7 +113,7 @@
 
                     var domain = up.getOption('domain');
                     var response = JSON.parse(info.response);
-                    var sourceLink = 'http://'+domain + '/'+encodeURIComponent(response.key); 
+                    var sourceLink = 'http://' + domain + '/' + encodeURIComponent(response.key);
                     // 获取上传成功后的文件的Url
                     uploadStatus.textContent = sourceLink + ' ' + response.key
                 },

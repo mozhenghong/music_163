@@ -1,0 +1,59 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.page{
+    display: flex;
+    flex-direction: row;
+    font-size: 12px;
+    line-height: 1.5;
+    .aside{
+        display: flex;
+        flex-direction: column;
+        width: 200px;
+        height: 100vh;
+        .newSong{
+            text-align: center;
+            padding: 10px;
+            border-bottom: 1px solid #999;
+        }
+        .newSong.active{
+            background: #D5D4D5;
+        }
+        .songList{
+            flex-grow: 1;
+            li{
+                padding: 10px;
+                border-bottom: 1px solid #ddd;
+            }
+            li.active{
+                background: #d5d4d5;
+            }
+        }
+        #upLoadContainer{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border: 2px dashed #ddd;
+            border-radius: 10px;
+            #upLoadButton{
+                padding: 20px 5px;
+                text-align: center;
+                cursor: pointer;
+            }
+        }
+        #uploadStatus{
+            height: 3em;
+        }
+    }
+    .main{
+        flex-grow: 1;
+        .form{
+            display: flex;
+            flex-direction: column;
+        }
+    }
+}
