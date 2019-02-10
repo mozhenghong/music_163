@@ -3,6 +3,10 @@
   padding: 0;
   box-sizing: border-box; }
 
+input {
+  font: inherit;
+  border: none; }
+
 .page {
   display: flex;
   flex-direction: row;
@@ -34,13 +38,28 @@
       border: 2px dashed #ddd;
       border-radius: 10px; }
       .page .aside #upLoadContainer #upLoadButton {
-        padding: 20px 5px;
+        padding: 20px;
         text-align: center;
         cursor: pointer; }
     .page .aside #uploadStatus {
       height: 3em; }
   .page .main {
-    flex-grow: 1; }
+    padding-left: 20px;
+    flex-grow: 1;
+    background: #D5D4D5; }
     .page .main .form {
       display: flex;
-      flex-direction: column; }
+      flex-direction: column;
+      font-size: 14px; }
+      .page .main .form .row {
+        padding: 10px;
+        display: flex; }
+        .page .main .form .row label input[type="text"] {
+          border: 1px solid #ddd;
+          border-radius: 5px; }
+        .page .main .form .row button {
+          border: none;
+          background: #fff;
+          border: 1px solid #ddd;
+          padding: 5px 10px;
+          border-radius: 5px; }
