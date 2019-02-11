@@ -15,13 +15,13 @@
         initQiniu(){
             var uploader = Qiniu.uploader({
                 runtimes: 'html5',    //上传模式,依次退化
-                browse_button: this.view.find('upLoadButton'),       //上传选择的点选按钮，**必需**
+                browse_button: this.view.find('#upLoadButton'),       //上传选择的点选按钮，**必需**
                 uptoken_url: 'http://localhost:8888/uptoken',
                 domain: 'pmnewar93.bkt.clouddn.com',   //bucket 域名，下载资源时用到，**必需**
                 get_new_uptoken: false,  //设置上传文件的时候是否每次都重新获取新的token
                 max_file_size: '20mb',           //最大文件体积限制
                 dragdrop: true,                   //开启可拖曳上传
-                drop_element: this.view.find('upLoadContainer') ,        //拖曳上传区域元素的ID，拖曳文件或文件夹后可触发上传
+                drop_element: this.view.find('#upLoadContainer') ,        //拖曳上传区域元素的ID，拖曳文件或文件夹后可触发上传
                 auto_start: true,                 //选择文件后自动上传，若关闭需要自己绑定事件触发上传
                 init: {
                     'FilesAdded': function (up, files) {
@@ -50,6 +50,10 @@
                         var sourceLink = 'http://' + domain + '/' + encodeURIComponent(response.key);
                         // 获取上传成功后的文件的Url
                         uploadStatus.textContent = sourceLink + ' ' + response.key
+                        window.eventHub.emit('upload',{
+                            url: sourceLink,
+                            name: response.key
+                        })
                     },
                     'Error': function (up, err, errTip) {
                         //上传出错时,处理相关的事情
@@ -62,4 +66,5 @@
     
         }
     }
+    controller.init(view,model)
 }
