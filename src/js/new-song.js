@@ -26,11 +26,11 @@
         bindEvents(){
             $(this.view.el).on('click', () => {
                 this.active()
+                window.eventHub.emit('new')
             })
         },
         active(){
             $(this.view.el).addClass('active')
-            window.eventHub.emit('new')
         },
         deactive(){
             $(this.view.el).removeClass('active')
