@@ -9,7 +9,7 @@
             $(this.el).html(this.template)
             let {songs} = data
             let liList = songs.map((song)=>{
-                return $('<li></li>').text(song.name)
+                return $('<li></li>').text(song.name).attr('data-song-id',song.id)      
             })
             $(this.el).find('ul').empty()
             liList.map((domli)=>{
@@ -18,6 +18,10 @@
         },
         clearActive(){
             $(this.el).find('.active').removeClass('active')
+        },
+        activeItem(li){
+            let $li = $(li)
+            $li.addClass('active').siblings('.active').removeClass('active')
         }
     }
     let model = {
@@ -37,6 +41,7 @@
             this.view = view;
             this.model = model;
             this.view.render(this.model.data)
+            this.bindEvents()
             window.eventHub.on('upload',()=>{
                 this.view.clearActive()
             })
@@ -46,6 +51,20 @@
             })
             this.model.find().then(() => {
                 this.view.render(this.model.data)
+            })
+        },
+        bindEvents(){
+            $(this.view.el).on('click','li',(e) => {
+                this.view.activeItem(e.currentTarget)
+                let songId = e.currentTarget.getAttribute('data-song-id')
+                let songs = this.model.data.songs
+                let data
+                for (let i=0; i<songs.length; i++){
+                    if(songs[i].id === songId){
+                        data = songs[i]
+                    }
+                }
+                window.eventHub.emit('select', JSON.parse(JSON.stringify(data)))
             })
         }
     }
