@@ -21,7 +21,16 @@
         }
     }
     let model = {
-        data: {songs: []}
+        data: {songs: []},
+        find(){
+            var query = new AV.Query('song');
+            return query.find().then((songs) => {
+                this.data.songs = songs.map((song) => {
+                    return {id: song.id, ...song.attributes}
+                })
+                return songs
+            })
+        }
     }
     let controller = {
         init(view,model){
@@ -33,6 +42,9 @@
             })
             window.eventHub.on('create',(data)=>{
                 this.model.data.songs.push(data)
+                this.view.render(this.model.data)
+            })
+            this.model.find().then(() => {
                 this.view.render(this.model.data)
             })
         }
