@@ -1,6 +1,6 @@
 {
     let view = {
-        el: '.page>.main',
+        el: '.page>.main-container>.main',
         template: `
             <form class="form">
                 <div class="row"><label>歌名：<input name="name" type="text" value ="__name__"></label></div>
