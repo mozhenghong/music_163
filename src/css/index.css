@@ -70,6 +70,8 @@ body header {
 
 body main {
   margin-top: 105px; }
+  body main .tabs-content > li {
+    display: none; }
   body main .tabs-content .page-1 .playlists .sectionTitle {
     border-left: 2px solid #D43C33;
     font-size: 17px;

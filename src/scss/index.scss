@@ -83,6 +83,9 @@ body{
     }
     main{
         margin-top: 105px;
+        .tabs-content>li{
+            display: none;
+        }
         .tabs-content{ 
             .page-1{
                 .playlists{
