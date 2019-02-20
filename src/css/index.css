@@ -1,0 +1,129 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; }
+
+a {
+  text-decoration: none;
+  color: inherit; }
+
+ul, ol {
+  list-style: none; }
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: normal; }
+
+.icon {
+  width: 1em;
+  height: 1em;
+  vertical-align: -0.15em;
+  fill: currentColor;
+  overflow: hidden; }
+
+body header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1;
+  background: white; }
+  body header .top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #D43C33;
+    padding: 16px 10px 16px 6px; }
+    body header .top .brand {
+      display: flex;
+      align-items: center;
+      color: #fff; }
+      body header .top .brand .icon {
+        width: 30px;
+        height: 30px; }
+      body header .top .brand h1 {
+        font-size: 22px; }
+    body header .top .upload {
+      color: #fff; }
+  body header .globalTabs .tabs-nav {
+    display: flex;
+    border-bottom: 1px solid #cccccc; }
+    body header .globalTabs .tabs-nav li {
+      width: 33.33%;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center; }
+      body header .globalTabs .tabs-nav li .text {
+        padding: 10px 5px;
+        position: relative;
+        top: 1px; }
+    body header .globalTabs .tabs-nav li.active {
+      color: #D43C33; }
+      body header .globalTabs .tabs-nav li.active .text::after {
+        content: '';
+        position: absolute;
+        height: 2px;
+        background: #D43C33;
+        bottom: 1px;
+        left: 0;
+        width: 100%; }
+
+body main {
+  margin-top: 105px; }
+  body main .tabs-content .page-1 .playlists .sectionTitle {
+    border-left: 2px solid #D43C33;
+    font-size: 17px;
+    line-height: 1;
+    padding-left: 8px;
+    margin: 20px 0 8px; }
+  body main .tabs-content .page-1 .playlists .songs {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    font-size: 13px; }
+    body main .tabs-content .page-1 .playlists .songs li {
+      width: 32.8%;
+      margin: 8px 0; }
+      body main .tabs-content .page-1 .playlists .songs li img {
+        width: 100%; }
+      body main .tabs-content .page-1 .playlists .songs li p {
+        line-height: 18px;
+        padding: 0 6px;
+        height: 36px; }
+  body main .tabs-content .page-1 .songs .sectionTitle {
+    border-left: 2px solid #D43C33;
+    font-size: 17px;
+    line-height: 1;
+    padding-left: 8px;
+    margin: 20px 0 8px; }
+  body main .tabs-content .page-1 .songs .list {
+    margin-top: 18px; }
+  body main .tabs-content .page-1 .art {
+    padding-top: 38px;
+    padding-bottom: 18px;
+    text-align: center; }
+    body main .tabs-content .page-1 .art .logo svg {
+      width: 230px;
+      height: 44px; }
+    body main .tabs-content .page-1 .art .link-wrapper {
+      display: inline-block;
+      border: 1px solid;
+      line-height: 40px;
+      font-size: 16px;
+      padding: 0 19px;
+      border-radius: 20px;
+      color: #D43C33;
+      margin-top: 10px;
+      margin-bottom: 5px; }
+    body main .tabs-content .page-1 .art .copyright {
+      font-size: 12px;
+      color: #888;
+      transform: scale(0.75); }
+  body main .tabs-content li.active {
+    display: block; }
+  body main .noCollapse::before {
+    content: '';
+    display: table; }
+  body main .noCollapse::after {
+    content: '';
+    display: table; }
