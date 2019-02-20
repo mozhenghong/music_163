@@ -1,15 +1,8 @@
 {
     let view = {
         el: '#app',
-        template: `
-            <audio  src = "{{url}}" class="audio"></audio>
-            <div>
-                <button class = "play">播放</button>
-                <button class = "pause">暂停</button>
-            </div>
-        `,
-        render(data){
-            $(this.el).html(this.template.replace('{{url}}',data.url))
+        render(){
+        
         },
         play(){
             let audio = $(this.el).find('.audio')[0]
