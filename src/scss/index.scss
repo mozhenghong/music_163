@@ -125,6 +125,35 @@ body{
                     }
                     .list{
                         margin-top: 18px;
+                        li{
+                            position: relative;
+                            margin-left: 10px;
+                            padding-bottom: 6px;
+                            padding-top: 5px;
+                            border-bottom: 1px solid #E2E2E3;
+                            h3{
+                                font-size: 17px;
+                            }
+                            p{
+                                font-size: 12px;
+                                color: #888;
+                                .icon-sq{
+                                    fill: #FE672E;
+                                }
+                            }
+                            .playButton{
+                                position: absolute;
+                                right:8px;
+                                top: 50%;
+                                transform: translateY(-50%);
+                                .icon-play{
+                                    width: 22px;
+                                    height: 22px;
+                                    vertical-align: middle;
+                                    fill: #AAA;
+                                }
+                            }
+                        }
                     }
                 }
                 .art{
