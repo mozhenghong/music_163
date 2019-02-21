@@ -98,7 +98,8 @@ body #app {
         transition: all 0.3s; }
         body #app .song-description .lyric .lines p {
           font-size: 14px;
-          line-height: 24px; }
+          line-height: 24px;
+          color: #5e595b; }
         body #app .song-description .lyric .lines p.active {
           color: white; }
   body #app .links {

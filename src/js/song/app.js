@@ -12,7 +12,7 @@
                     window.eventHub.emit('end')
                 }
                 audio.ontimeupdate = () => {
-                   this.showLyrics(audio.currentTime)
+                        this.showLyrics(audio.currentTime)
                 }
             }
             if(status === 'playing'){
