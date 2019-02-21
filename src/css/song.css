@@ -26,25 +26,16 @@ h1, h2, h3, h4, h5, h6 {
   100% {
     transform: rotate(360deg); } }
 
-body #app::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: transparent url(../img/cover4.jpg) no-repeat center;
-  background-size: cover;
-  filter: blur(5px);
-  z-index: -1; }
-
 body #app {
+  background: rgba(0, 0, 0, 0.4) url(../img/cover4.jpg) no-repeat center;
+  background-size: cover;
   height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between; }
   body #app .disc-container {
-    position: relative; }
+    position: relative;
+    z-index: 2; }
     body #app .disc-container .pointer {
       width: 24vw;
       position: absolute;
@@ -82,13 +73,14 @@ body #app {
         border-radius: 50%;
         animation: circle 20s infinite linear;
         animation-play-state: paused; }
-    body #app .disc-container .disc-container.playing .disc .icon-wrapper .icon-pause {
-      display: block; }
-    body #app .disc-container .disc-container.playing .disc .icon-wrapper .icon-play {
-      display: none; }
-    body #app .disc-container .disc-container.playing .disc .cover {
-      animation-play-state: running; }
+  body #app .disc-container.playing .disc .icon-wrapper .icon-pause {
+    display: block; }
+  body #app .disc-container.playing .disc .icon-wrapper .icon-play {
+    display: none; }
+  body #app .disc-container.playing .disc .cover {
+    animation-play-state: running; }
   body #app .song-description {
+    z-index: 2;
     flex-grow: 1;
     color: #AEABAC;
     text-align: center;
@@ -106,6 +98,7 @@ body #app {
       body #app .song-description .lyric .lines p.active {
         color: white; }
   body #app .links {
+    z-index: 2;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -124,3 +117,14 @@ body #app {
     body #app .links .main {
       background: #D43B32;
       color: white; }
+
+body #app::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: inherit;
+  filter: blur(5px);
+  z-index: 1; }
