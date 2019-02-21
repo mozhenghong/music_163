@@ -33,6 +33,8 @@ body #app {
   display: flex;
   flex-direction: column;
   justify-content: space-between; }
+  body #app audio {
+    z-index: 2; }
   body #app .disc-container {
     position: relative;
     z-index: 2; }
@@ -92,11 +94,13 @@ body #app {
     body #app .song-description .lyric {
       height: 72px;
       overflow: hidden; }
-      body #app .song-description .lyric .lines p {
-        font-size: 14px;
-        line-height: 24px; }
-      body #app .song-description .lyric .lines p.active {
-        color: white; }
+      body #app .song-description .lyric .lines {
+        transition: all 0.3s; }
+        body #app .song-description .lyric .lines p {
+          font-size: 14px;
+          line-height: 24px; }
+        body #app .song-description .lyric .lines p.active {
+          color: white; }
   body #app .links {
     z-index: 2;
     display: flex;

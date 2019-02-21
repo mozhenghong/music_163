@@ -35,6 +35,7 @@ body{
         display: flex;
         flex-direction: column;
         justify-content: space-between;
+        audio{z-index: 2;}
         .disc-container{
             position: relative;
             z-index: 2;
@@ -115,6 +116,7 @@ body{
                 height: 72px;
 	            overflow: hidden;
                 .lines{
+                    transition: all 0.3s;
                     p{
                         font-size: 14px;
 	                    line-height: 24px;
