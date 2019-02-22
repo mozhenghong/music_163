@@ -2,7 +2,7 @@
     let view = {
         el: 'section.songs',
         template: `
-        <li>
+        <li id ="{{song.id}}">
             <h3>{{song.name}}</h3>
             <p>
                 <svg class="icon icon-sq">
@@ -10,7 +10,7 @@
                 </svg>
                {{song.singer}}
             </p>
-            <a class="playButton" href="./song.html?id={{song.id}}">
+            <a class="playButton">
                 <svg class="icon icon-play">
                     <use xlink:href="#icon-play"></use>
                 </svg>
@@ -35,7 +35,7 @@
             var query = new AV.Query('song');
             return query.find().then((songs) => {
                 this.data.songs = songs.map((song) => {
-                    return {id: song.id, ...song.attributes}
+                    return Object.assign({id: song.id}, song.attributes)
                 })
                 return songs
             })
@@ -47,6 +47,14 @@
             this.model = model;
             this.model.find().then(() => {
                 this.view.render(this.model.data)
+            })
+            this.bindEvents()
+        },
+        bindEvents(){
+            $(this.view.el).on('click','li', (e) => {
+                let id = e.currentTarget.getAttribute('id')
+                console.log(id)
+                location.href = `./song.html?id=${id}`
             })
         }
     }
