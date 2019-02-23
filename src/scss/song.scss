@@ -42,15 +42,23 @@ body{
             .pointer{
                 width: 24vw;
                 position: absolute;
+                z-index: 2;
                 left: 45vw;
             }
             .disc{
+                position: absolute;
+                top: 20vw;
+                left: 50vw;
                 display: flex; 
                 justify-content: center; 
                 align-items: center; 
-                margin-top: 18vw; 
+                margin-top: 13.5vh; 
                 .icon-wrapper{
                     position: absolute; 
+                    top: 50%;
+                    left: 50%;
+                    margin-top: -1vw;
+                    margin-left: -10vw;
                     z-index: 1; 
                     display: flex; 
                     justify-content: center;
@@ -71,20 +79,33 @@ body{
                 }
                 .ring{
                     width: 72vw;
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    margin-top: -27vw;
+                    margin-left: -36vw;
                 }
                 .light{
                     width: 72vw; 
-                    position: absolute; 
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    margin-top: -27vw;
+                    margin-left: -36vw; 
                 }
-                .cover{
-                    width: 44.5vw;
-                    position: absolute; 
+                .cover{    
                     border-radius: 50%;  
-                    animation: circle 20s infinite linear; 
-                    animation-play-state: paused;
-                }
-            }
-            
+                    width: 44.5vw;
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    margin-top: -13.25vw;
+                    margin-left: -22.25vw;
+                    transition: all 0.2s;
+                    // animation: circle 20s infinite linear; 
+                    // animation-play-state: paused;   
+                }               
+            }            
         }
         .disc-container.playing{
             .disc{
@@ -96,18 +117,18 @@ body{
                         display: none;
                     }
                 }
-                .cover{
-                    animation-play-state: running;
-                }
+                // .cover{
+                //     animation-play-state: running;    
+                //     **ios并不支持**
+                // }
             }
         }
         .song-description{
             z-index: 2;
-            flex-grow: 1;
             color: #AEABAC;
             text-align: center;
             line-height: 2;
-            margin-top: 20px;
+            margin-top: 70vw;
             h1{
                 color: white;
 	            font-size: 18px;

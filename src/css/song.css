@@ -41,14 +41,22 @@ body #app {
     body #app .disc-container .pointer {
       width: 24vw;
       position: absolute;
+      z-index: 2;
       left: 45vw; }
     body #app .disc-container .disc {
+      position: absolute;
+      top: 20vw;
+      left: 50vw;
       display: flex;
       justify-content: center;
       align-items: center;
-      margin-top: 18vw; }
+      margin-top: 13.5vh; }
       body #app .disc-container .disc .icon-wrapper {
         position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-top: -1vw;
+        margin-left: -10vw;
         z-index: 1;
         display: flex;
         justify-content: center;
@@ -65,29 +73,38 @@ body #app {
         body #app .disc-container .disc .icon-wrapper .icon-pause {
           display: none; }
       body #app .disc-container .disc .ring {
-        width: 72vw; }
+        width: 72vw;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-top: -27vw;
+        margin-left: -36vw; }
       body #app .disc-container .disc .light {
         width: 72vw;
-        position: absolute; }
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-top: -27vw;
+        margin-left: -36vw; }
       body #app .disc-container .disc .cover {
+        border-radius: 50%;
         width: 44.5vw;
         position: absolute;
-        border-radius: 50%;
-        animation: circle 20s infinite linear;
-        animation-play-state: paused; }
+        top: 50%;
+        left: 50%;
+        margin-top: -13.25vw;
+        margin-left: -22.25vw;
+        transition: all 0.2s; }
   body #app .disc-container.playing .disc .icon-wrapper .icon-pause {
     display: block; }
   body #app .disc-container.playing .disc .icon-wrapper .icon-play {
     display: none; }
-  body #app .disc-container.playing .disc .cover {
-    animation-play-state: running; }
   body #app .song-description {
     z-index: 2;
-    flex-grow: 1;
     color: #AEABAC;
     text-align: center;
     line-height: 2;
-    margin-top: 20px; }
+    margin-top: 70vw; }
     body #app .song-description h1 {
       color: white;
       font-size: 18px; }

@@ -15,10 +15,17 @@
                         this.showLyrics(audio.currentTime)
                 }
             }
-            if(status === 'playing'){
+            if(status === 'playing') {
                 $(this.el).find('.disc-container').addClass('playing')
-            }else{
+                this.addTransform()
+                console.log('play', this.transform)
+            } else {
                 $(this.el).find('.disc-container').removeClass('playing')
+                console.log('transform', this.transform)
+                console.log('1', this.n);
+                console.log('2', this.n);
+                $(this.el).find('.cover').css('transform',`rotate(${this.n}deg)`)
+                clearTimeout(this.transform);          
             }
             $(this.el).find('.song-description>h1').text(song.name)
 
@@ -40,6 +47,19 @@
                 }
                 $(this.el).find('.lines').append(p)
             })
+        },
+        addTransform(){
+            let n = this.n || 0;
+            this.transform = setTimeout(function xxx() {
+                // if(n >= 365){
+                //     n = 0
+                // }
+               $(this.el).find('.cover').css('transform',`rotate(${n}deg)`)
+                console.log(n)
+                n += 5;
+                this.n = n
+                this.transform = setTimeout(xxx.bind(this), 100);
+            }.bind(this), 100)
         },
         showLyrics(time){
             if(time !==0){
@@ -63,8 +83,7 @@
                 let height = -(pHeight-linesHeight-25)
                 $(this.el).find('.lines').css({transform:`translateY(${height}px)`})
                 $(p).addClass('active').siblings('.active').removeClass('active')
-            }
-            
+            }           
         },
         play(){
             $(this.el).find('audio')[0].play()
@@ -83,7 +102,8 @@
               lyrics:'',
               cover: ''
             },
-            status: 'paused'
+            status: 'paused',
+            transform: ''
         },
         get(id){
             var query = new AV.Query('song')
@@ -103,6 +123,7 @@
             this.view = view
             this.model = model
             let id = this.getSongId()
+            this.view.n = 0
             this.model.get(id).then(()=>{
                 this.view.render(this.model.data)
             })

@@ -2,7 +2,7 @@
     let view = {
         el: 'section.songs',
         template: `
-        <li id ="{{song.id}}">
+        <li>
             <h3>{{song.name}}</h3>
             <p>
                 <svg class="icon icon-sq">
@@ -10,7 +10,7 @@
                 </svg>
                {{song.singer}}
             </p>
-            <a class="playButton">
+            <a class="playButton" href="./song.html?id={{song.id}}">
                 <svg class="icon icon-play">
                     <use xlink:href="#icon-play"></use>
                 </svg>
@@ -47,14 +47,6 @@
             this.model = model;
             this.model.find().then(() => {
                 this.view.render(this.model.data)
-            })
-            this.bindEvents()
-        },
-        bindEvents(){
-            $(this.view.el).on('click','li', (e) => {
-                let id = e.currentTarget.getAttribute('id')
-                console.log(id)
-                location.href = `./song.html?id=${id}`
             })
         }
     }
