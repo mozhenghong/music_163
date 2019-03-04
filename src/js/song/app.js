@@ -18,12 +18,8 @@
             if(status === 'playing') {
                 $(this.el).find('.disc-container').addClass('playing')
                 this.addTransform()
-                console.log('play', this.transform)
             } else {
                 $(this.el).find('.disc-container').removeClass('playing')
-                console.log('transform', this.transform)
-                console.log('1', this.n);
-                console.log('2', this.n);
                 $(this.el).find('.cover').css('transform',`rotate(${this.n}deg)`)
                 clearTimeout(this.transform);          
             }
@@ -55,7 +51,6 @@
                 //     n = 0
                 // }
                $(this.el).find('.cover').css('transform',`rotate(${n}deg)`)
-                console.log(n)
                 n += 5;
                 this.n = n
                 this.transform = setTimeout(xxx.bind(this), 100);
